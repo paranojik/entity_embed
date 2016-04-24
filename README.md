@@ -21,6 +21,7 @@ Entity Embed can be installed via the [standard Drupal installation process](htt
   * Enable the 'Display embedded entities' filter.
   * Drag and drop the 'E' button into the Active toolbar.
   * If the text format uses the 'Limit allowed HTML tags and correct faulty HTML' filter, ensure the necessary tags and attributes are whitelisted: add ```<drupal-entity data-entity-type data-entity-uuid data-entity-id data-view-mode data-entity-embed-display data-entity-embed-settings data-align data-caption data-embed-button>``` to the 'Allowed HTML tags' setting. (Will happen automatically after https://www.drupal.org/node/2554687.)
+  * If you're using both the 'Align images' and 'Caption images' filters make sure the 'Align images' filter is run before the 'Caption images' filter in the **Filter processing order** section. (Explanation: Due to the implementation details of the two filters it is important to execute them in the right sequence in order to obtain a sensible final markup. In practice this means that the alignment filter has to be run before the caption filter, otherwise the alignment class will appear inside the <figure> tag (instead of appearing on it) the caption filter produces.)
 
 ## Usage
 
